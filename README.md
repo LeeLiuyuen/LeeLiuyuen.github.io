@@ -1,14 +1,14 @@
 # Silicore Pages
 
-This repository hosts the source files for the Silicore website. Currently it contains only this README.
+This repository hosts a small static website for showcasing fursuit projects. Each suit is identified by a code (e.g., P051) and includes customer and species information.
 
 ## Getting Started
 
-Clone the repository to begin contributing:
+Open `index.html` in a web browser to view the gallery.
 
-```bash
-git clone https://github.com/example/Silicore_Pages.git
-```
+Image assets are not tracked in this repository. Add your own images under an
+`images/<ID>/` directory that matches the paths defined in
+`data/fursuits.json` to see them in the gallery.
 
 ## Contributing
 
@@ -19,4 +19,3 @@ git clone https://github.com/example/Silicore_Pages.git
 ## License
 
 No explicit license has been selected yet.
-
