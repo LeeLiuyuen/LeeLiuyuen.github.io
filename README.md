@@ -1,21 +1,22 @@
-# Silicore Pages
+# Silicore 页面
 
-This repository hosts a small static website for showcasing fursuit projects. Each suit is identified by a code (e.g., P051) and includes customer and species information.
+这是一个用于展示 Silicore Innovations 品牌与联络入口的静态页面仓库，内容包含公司标识、联系渠道与表单入口等。
 
-## Getting Started
+## 开始使用
 
-Open `index.html` in a web browser to view the gallery.
+直接用浏览器打开 `index.html` 即可预览页面。
 
-Image assets are not tracked in this repository. Add your own images under an
-`images/<ID>/` directory that matches the paths defined in
-`data/fursuits.json` to see them in the gallery.
+## 内容与资源
 
-## Contributing
+- 页面样式集中在 `styles.css`。
+- 图片与字体资源位于 `assets/` 目录。
 
-1. Create a topic branch.
-2. Make your changes.
-3. Submit a pull request.
+## 贡献方式
 
-## License
+1. 新建分支。
+2. 提交修改。
+3. 发起 Pull Request。
 
-No explicit license has been selected yet.
+## 许可
+
+当前尚未指定开源许可。
