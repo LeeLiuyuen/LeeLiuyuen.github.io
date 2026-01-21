@@ -1,5 +1,5 @@
 /* =========================================================
-   Custom Fonts
+   自定义字体
    ========================================================= */
 @font-face{
   font-family: "OCRA";
@@ -17,13 +17,13 @@
   font-display: swap;
 }
 
-/* ====== Box sizing: keep outer frames perfectly aligned ====== */
+/* ====== 盒模型尺寸：保持外框对齐 ====== */
 *, *::before, *::after{
   box-sizing: border-box;
 }
 
 /* =========================================================
-   Theme Variables
+   主题变量
    ========================================================= */
 :root{
   --bg: #070a08;
@@ -35,14 +35,14 @@
   --glow: rgba(125,255,207,.45);
   --shadow: rgba(0,0,0,.55);
 
-  /* ✅ 关键修复：全局等宽字体不再包含 OCRA */
+  /* 关键修复：全局等宽字体不再包含 OCRA */
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 /* =========================================================
-   Base
+   基础样式
    ========================================================= */
 html, body{
   height: 100%;
@@ -61,11 +61,11 @@ html, body{
   padding: 24px;
   position: relative;
   overflow: hidden;
-  font-family: var(--mono); /* 全局仍用系统等宽 */
+  font-family: var(--mono); /* 全局仍使用系统等宽字体 */
 }
 
 /* =========================================================
-   FX Layers
+   特效层
    ========================================================= */
 .fx{
   position: absolute;
@@ -106,7 +106,7 @@ html, body{
 }
 
 /* =========================================================
-   Card
+   主卡片
    ========================================================= */
 .card{
   width: min(920px, 92vw);
@@ -129,7 +129,7 @@ html, body{
 }
 
 /* =========================================================
-   Top / Brand
+   顶部 / 品牌
    ========================================================= */
 .top{
   padding: 18px 18px 10px;
@@ -161,13 +161,13 @@ html, body{
 }
 
 /* =========================================================
-   Mid
+   中部
    ========================================================= */
 .mid{
   padding: 0 18px 16px;
 }
 
-/* ✅ OCRA 只作用在公司名条 */
+/* OCRA 只用于公司名条 */
 .tagline{
   display:inline-block;
   font-family: "OCRA", var(--mono);
@@ -179,7 +179,7 @@ html, body{
 }
 
 /* =========================================================
-   DOS Console (Terminus)
+   DOS 控制台（Terminus）
    ========================================================= */
 .console{
   margin-top: 12px;
@@ -188,7 +188,7 @@ html, body{
   background: rgba(0,0,0,.22);
   box-shadow: 0 0 0 1px rgba(125,255,207,.10) inset;
 
-  /* ✅ 控制台独立字体：Terminus */
+  /* 控制台独立字体：Terminus */
   font-family: "Terminus", var(--mono);
 
   font-size: 13px;
@@ -198,7 +198,7 @@ html, body{
   overflow: hidden;
 }
 
-/* 190-C watermark INSIDE console, docked to top/right/bottom */
+/* 190-C 水印在控制台内，贴靠上/右/下 */
 .console-mark{
   position: absolute;
   top: 0;
@@ -211,7 +211,7 @@ html, body{
   background-image: url("./assets/TEX_190CMark.svg");
   background-repeat: no-repeat;
 
-  /* 关键：贴右侧内壁，上下吃满 */
+  /* 关键：贴右侧内壁，上下贴满 */
   background-position: right center;
   background-size: contain;
 
@@ -225,7 +225,7 @@ html, body{
   z-index: 1;
 }
 
-/* console text */
+/* 控制台文本 */
 .console-line{
   position: relative;
   z-index: 2;
@@ -247,7 +247,7 @@ html, body{
   margin-left: 4px;
 }
 
-/* scanlines over everything */
+/* 覆盖所有内容的扫描线 */
 .console::after{
   content:"";
   position:absolute;
@@ -263,7 +263,7 @@ html, body{
   opacity: .35;
 }
 
-/* ====== Contact buttons (X / Instagram / TikTok) ====== */
+/* ====== 联系按钮（X / Instagram / TikTok） ====== */
 .contact-buttons{
   margin-top: 14px;
   margin-left: 14px;
@@ -305,7 +305,7 @@ html, body{
 
 
 /* =========================================================
-   Bottom
+   底部
    ========================================================= */
 .bottom{
   display:grid;
@@ -365,7 +365,7 @@ html, body{
 }
 
 /* =========================================================
-   Responsive
+   响应式
    ========================================================= */
 @media (max-width: 720px){
   .bottom{ grid-template-columns: 1fr; }
@@ -374,15 +374,15 @@ html, body{
 
 
 /* =========================================================
-   Entry Panel — EXACT same outer frame as main card
+   入口面板 — 与主卡片外框一致
    ========================================================= */
 .entry-panel{
   width: min(920px, 92vw);
 
-  /* ✅ 间距再缩一半 */
+  /* 间距再缩一半 */
   margin-top: 4px;
 
-  /* ✅ 完全复用 card 的视觉语言 */
+  /* 完全复用主卡片的视觉语言 */
   border: 2px solid var(--frame);
   box-shadow:
     0 0 0 1px var(--frame-dim) inset,
@@ -396,7 +396,7 @@ html, body{
   padding: 14px;
 }
 
-/* inner thin frame — 与 card::before 对齐 */
+/* 内部细框 — 与主卡片 card::before 对齐 */
 .entry-panel::before{
   content:"";
   position:absolute;
@@ -411,8 +411,8 @@ html, body{
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr;   /* ✅ 一行一个 */
-  gap: 10px;                    /* ✅ 行间距更紧凑 */
+  grid-template-columns: 1fr;   /* 一行一个 */
+  gap: 10px;                    /* 行间距更紧凑 */
 }
 
 .entry-grid{
@@ -420,7 +420,7 @@ html, body{
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr; /* 一行一个 */
-  gap: 8px;                   /* ✅ 再缩一半 */
+  gap: 8px;                   /* 再缩一半 */
 }
 
 .entry-card{
@@ -470,33 +470,33 @@ html, body{
   color: var(--ink-dim);
 }
 
-/* ====== Stack wrapper: forces perfect outer-frame alignment ====== */
+/* ====== 堆叠容器：强制外框对齐 ====== */
 .stack{
-  width: min(920px, 92vw);  /* ✅ 唯一的宽度来源 */
+  width: min(920px, 92vw);  /* 唯一的宽度来源 */
   display: flex;
   flex-direction: column;
-  gap: 32px;                 /* ✅ 这就是你要缩的“上下大块间距”，缩一半/再缩都改这里 */
-  align-items: stretch;     /* ✅ 两块都拉到同宽 */
+  gap: 32px;                 /* 控制上下大块间距，缩小请改这里 */
+  align-items: stretch;     /* 两块都拉到同宽 */
 }
 
-/* ✅ 两块不再自己决定宽度，交给 stack */
+/* 两块不再自行决定宽度，交给堆叠容器 */
 .card,
 .entry-panel{
   width: 100%;
 }
 
-/* ✅ 由 gap 控制间距，所以 entry-panel 不要再 margin-top */
+/* 由 gap 控制间距，入口面板不再设置 margin-top */
 .entry-panel{
   margin-top: 0 !important;
 }
 
-/* ====== Contact Us title uses OCRA ====== */
+/* ====== 联系标题使用 OCRA ====== */
 .left .headline{
   font-family: "OCRA", var(--mono);
   letter-spacing: .18em;
 }
 
-/* ====== Global CRT scanlines overlay (covers EVERYTHING) ====== */
+/* ====== 全局 CRT 扫描线覆盖（覆盖所有内容） ====== */
 body::before{
   content:"";
   position: fixed;
@@ -513,7 +513,7 @@ body::before{
   );
 
   opacity: .35;
-  mix-blend-mode: add;  /* ✅ 替代 add */
+  mix-blend-mode: add;  /* 替代 add */
 }
 
 body::after{
