@@ -1,13 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Fursuit Gallery</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <h1>Fursuit Gallery</h1>
-  <div id="gallery"></div>
-  <script src="app.js"></script>
-</body>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrassHands — Home</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <main class="stage">
+      <!-- 背景噪点与扫描线 -->
+      <div class="fx fx-noise" aria-hidden="true"></div>
+      <div class="fx fx-scanlines" aria-hidden="true"></div>
+      <div class="fx fx-vignette" aria-hidden="true"></div>
+
+      <!-- 主卡片 -->
+      <section class="card" role="region" aria-label="Home card">
+        <header class="top">
+          <div class="logo">
+            <div class="logo-box">
+              <span class="logo-mark">B</span>
+            </div>
+          </div>
+
+          <div class="brand">
+            <div class="brand-name glitch" data-text="BrassHands">BrassHands</div>
+            <div class="brand-bar"></div>
+          </div>
+        </header>
+
+        <div class="mid">
+          <div class="tagline">[AMERICAN DYNAMISM SUPPORT]</div>
+        </div>
+
+        <div class="bottom">
+          <div class="left">
+            <div class="headline">Founders on<br />a mission</div>
+            <div class="sub">DESIGN OPERATOR · [ U.S.A. ]</div>
+          </div>
+
+          <div class="right">
+            <div class="kv">
+              <div class="k">UNIT DESIGNATION:</div><div class="v">BH-OPS.01</div>
+              <div class="k">DIVISION:</div><div class="v">SPECIAL OPERATIONS CREATIVE</div>
+              <div class="k">CLEARANCE:</div><div class="v">LEVEL DELTA</div>
+              <div class="k">STATUS:</div><div class="v">ACTIVE AND DEPLOYABLE</div>
+              <div class="k">SERIAL:</div><div class="v">BH-A7X-4421</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
