@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Silicore Online Viewer - Three.js GLB 3D model viewer"
+    />
+    <title>Silicore Online Viewer</title>
+    <script type="module" crossorigin src="/wip/assets/index-CjmQb5MS.js"></script>
+    <link rel="stylesheet" crossorigin href="/wip/assets/index-_2cu4-tJ.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="viewer" aria-label="3D model viewer"></canvas>
+
+      <header class="topbar" aria-label="Viewer status">
+        <div class="model-meta">
+          <span class="eyebrow">Silicore Viewer</span>
+          <h1 id="model-name">Loading</h1>
+        </div>
+        <div class="actions">
+          <button id="reset-view" class="icon-button" type="button" title="重置视角" aria-label="重置视角">
+            <span aria-hidden="true">↺</span>
+          </button>
+        </div>
+      </header>
+
+      <aside class="control-panel" aria-label="Light controls">
+        <label for="light-angle">光照角度</label>
+        <div class="slider-row">
+          <input id="light-angle" type="range" min="0" max="360" value="35" />
+          <output id="light-angle-value" for="light-angle">35°</output>
+        </div>
+      </aside>
+
+      <div id="status-panel" class="status-panel" role="status" aria-live="polite">
+        <div id="status-title" class="status-title">准备加载模型</div>
+        <div id="status-detail" class="status-detail"></div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
