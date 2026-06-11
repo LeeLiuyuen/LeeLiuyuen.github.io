@@ -8,8 +8,8 @@
       content="Silicore Online Viewer - Three.js GLB 3D model viewer"
     />
     <title>Silicore Online Viewer</title>
-    <script type="module" crossorigin src="/wip/assets/index-CjmQb5MS.js"></script>
-    <link rel="stylesheet" crossorigin href="/wip/assets/index-_2cu4-tJ.css">
+    <script type="module" crossorigin src="/wip/assets/index-C5hpxAL5.js"></script>
+    <link rel="stylesheet" crossorigin href="/wip/assets/index-ic_fOBij.css">
   </head>
   <body>
     <div id="app">
@@ -21,11 +21,16 @@
           <h1 id="model-name">Loading</h1>
         </div>
         <div class="actions">
-          <button id="reset-view" class="icon-button" type="button" title="重置视角" aria-label="重置视角">
-            <span aria-hidden="true">↺</span>
+          <button id="reset-view" class="camera-reset-button" type="button" title="摄像机重置" aria-label="摄像机重置">
+            <span class="button-icon" aria-hidden="true">↺</span>
+            <span class="button-label">摄像机重置</span>
           </button>
         </div>
       </header>
+
+      <div class="axis-panel" aria-label="XYZ axis indicator">
+        <canvas id="axis-indicator" aria-hidden="true"></canvas>
+      </div>
 
       <aside class="control-panel" aria-label="Light controls">
         <label for="light-angle">光照角度</label>
