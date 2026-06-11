@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Silicore Online Viewer - Three.js GLB 3D model viewer"
+    />
+    <title>Silicore Online Viewer</title>
+    <script type="module" crossorigin src="/wip/assets/index-XCjuCUyD.js"></script>
+    <link rel="stylesheet" crossorigin href="/wip/assets/index-Du6hUf9B.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="viewer" aria-label="3D model viewer"></canvas>
+      <div class="viewport-overlay" aria-hidden="true"></div>
+
+      <header class="topbar" aria-label="Viewer status">
+        <div class="brand-panel">
+          <img src="/assets/TEX_Silicore_Logo.svg" alt="Silicore" />
+        </div>
+        <div class="model-meta">
+          <span class="eyebrow">//CUSTOMER MODEL VIEWER</span>
+          <h1 id="model-name">Loading</h1>
+        </div>
+        <div class="system-tag" aria-hidden="true">SC_PREVIEW_PROTOCOL</div>
+        <div class="actions">
+          <button id="reset-view" class="camera-reset-button" type="button" title="Reset camera" aria-label="Reset camera">
+            <span class="button-icon" aria-hidden="true">↺</span>
+            <span class="button-label">CAMERA_RESET</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="axis-panel" aria-label="XYZ axis indicator">
+        <canvas id="axis-indicator" aria-hidden="true"></canvas>
+      </div>
+
+      <aside class="control-panel" aria-label="Light controls">
+        <label for="light-angle">LIGHT_ANGLE</label>
+        <div class="slider-row">
+          <input id="light-angle" type="range" min="0" max="360" value="35" />
+          <output id="light-angle-value" for="light-angle">35°</output>
+        </div>
+      </aside>
+
+      <div id="status-panel" class="status-panel" role="status" aria-live="polite">
+        <div id="status-title" class="status-title">准备加载模型</div>
+        <div id="status-detail" class="status-detail"></div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
