@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agent Fur Fabric Selector</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar" aria-label="Tool status">
+        <div class="brand-panel">
+          <img src="agent_fur_black_white_refined.svg" alt="Agent Fur" />
+        </div>
+        <div class="model-meta">
+          <span class="eyebrow" data-i18n="eyebrow">//FUR FABRIC SELECTOR</span>
+          <h1 data-i18n="appTitle">Fabric Selector</h1>
+          <p id="catalogSummary" data-i18n="loading">Loading fabric database...</p>
+        </div>
+        <div class="topbar-actions">
+          <button
+            id="languageToggle"
+            class="language-toggle-button"
+            type="button"
+            aria-label="Switch language"
+            title="Switch language"
+          >
+            中文
+          </button>
+          <button
+            id="advanceMode"
+            class="silicore-advance-button"
+            type="button"
+            aria-label="Toggle advance mode"
+            aria-pressed="false"
+            title="Advance mode"
+          >
+            <span class="silicore-logo-mark" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <section class="catalog-panel" aria-label="Fabric catalog">
+        <section class="controls" aria-label="Filters and sorting">
+          <label class="field search-field">
+            <span data-i18n="searchLabel">ID Search</span>
+            <input
+              id="searchInput"
+              type="search"
+              inputmode="numeric"
+              placeholder="Example 3073"
+              data-i18n-placeholder="searchPlaceholder"
+            />
+          </label>
+          <label class="field">
+            <span data-i18n="manufacturerLabel">Manufacturer</span>
+            <select id="manufacturerFilter"></select>
+          </label>
+          <label class="field">
+            <span>RND / NRND</span>
+            <select id="statusFilter">
+              <option value="" data-i18n="allStatuses">All statuses</option>
+              <option value="RND">RND</option>
+              <option value="NRND">NRND</option>
+              <option value="none" data-i18n="unmarked">Unmarked</option>
+            </select>
+          </label>
+          <label class="field color-field">
+            <span data-i18n="targetColor">Target Color</span>
+            <input id="colorPicker" type="color" value="#d8b15b" />
+          </label>
+          <div class="button-row">
+            <button
+              id="sortByColorButton"
+              class="primary-button"
+              type="button"
+              data-i18n="sortByColor"
+            >
+              Sort by Color
+            </button>
+            <button id="resetSortButton" type="button" data-i18n="resetSort">
+              Reset
+            </button>
+          </div>
+        </section>
+
+        <div id="statusBar" class="status-bar" role="status"></div>
+        <section id="fabricGrid" class="fabric-grid" aria-label="Fabric list"></section>
+      </section>
+
+      <aside class="side-panel" aria-label="Details and cart">
+        <section class="detail-panel" aria-label="Fabric detail">
+          <button
+            id="detailCollapseButton"
+            class="detail-collapse-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="detailContent detailEmpty"
+          >
+            <span class="detail-collapse-label" data-i18n="expand">Expand</span>
+          </button>
+          <div id="detailEmpty" class="empty-state" data-i18n="detailEmpty">
+            Select a fabric to view the large image and details.
+          </div>
+          <div id="detailContent" class="detail-content hidden">
+            <img id="detailImage" alt="" />
+            <div class="detail-meta">
+              <div class="detail-title">
+                <h2 id="detailName"></h2>
+                <span id="detailId"></span>
+              </div>
+              <dl>
+                <div>
+                  <dt data-i18n="manufacturerLabel">Manufacturer</dt>
+                  <dd id="detailManufacturer"></dd>
+                </div>
+                <div id="detailFlagsRow">
+                  <dt data-i18n="recommendationStatus">Status</dt>
+                  <dd id="detailFlags"></dd>
+                </div>
+              </dl>
+              <button
+                id="addSelectedButton"
+                class="primary-button wide-button"
+                type="button"
+                data-i18n="addToCart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="cart-panel" aria-label="Cart">
+          <div class="panel-heading">
+            <h2 data-i18n="cartTitle">Cart</h2>
+            <span id="cartCount">0 items</span>
+          </div>
+          <ol id="cartList" class="cart-list"></ol>
+          <div id="cartEmpty" class="empty-state" data-i18n="cartEmpty">
+            The cart is empty.
+          </div>
+
+          <div class="export-tools">
+            <button id="exportImageButton" type="button" data-i18n="exportImage">
+              Export Image
+            </button>
+            <button id="exportTextButton" type="button" data-i18n="exportText">
+              Export Code
+            </button>
+          </div>
+          <label class="field import-field">
+            <span data-i18n="importBase64">Import from Code</span>
+            <textarea
+              id="importText"
+              rows="4"
+              placeholder="Paste exported code"
+              data-i18n-placeholder="importPlaceholder"
+            ></textarea>
+          </label>
+          <div class="button-row">
+            <button id="importAppendButton" type="button" data-i18n="importAppend">
+              Add from Code
+            </button>
+            <button id="importReplaceButton" type="button" data-i18n="importReplace">
+              Replace from Code
+            </button>
+          </div>
+          <textarea id="exportTextOutput" class="export-output" rows="4" readonly></textarea>
+        </section>
+
+        <section id="adminPanel" class="admin-panel hidden" aria-label="Maker tools">
+          <div class="panel-heading">
+            <h2 data-i18n="makerTools">Maker Tools</h2>
+            <span>Advance</span>
+          </div>
+          <div class="export-tools">
+            <button id="exportBomButton" type="button" data-i18n="exportBom">
+              Export BOM.csv
+            </button>
+            <button id="exportCheckerButton" type="button" data-i18n="exportChecker">
+              Export Checker.png
+            </button>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <template id="fabricCardTemplate">
+      <button class="fabric-card" type="button">
+        <span class="image-frame">
+          <img alt="" loading="lazy" />
+        </span>
+        <span class="status-badge hidden"></span>
+        <span class="id-strip"></span>
+        <span class="delta-badge hidden"></span>
+      </button>
+    </template>
+
+    <template id="cartItemTemplate">
+      <li class="cart-item" draggable="true">
+        <img alt="" loading="lazy" />
+        <div class="cart-item-main">
+          <div class="cart-item-title">
+            <strong></strong>
+            <span></span>
+          </div>
+          <input type="text" data-i18n-placeholder="partNotePlaceholder" placeholder="Part note" />
+        </div>
+        <div class="cart-actions">
+          <button class="move-up" type="button" data-i18n-title="moveUp" title="Move up">▲</button>
+          <button class="move-down" type="button" data-i18n-title="moveDown" title="Move down">▼</button>
+          <button class="remove-item" type="button" data-i18n-title="remove" title="Remove">×</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
