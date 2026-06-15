@@ -31,14 +31,14 @@
 
 @font-face {
   font-family: "OCR-A";
-  src: url("assets/FONT_OCRA.otf") format("opentype");
+  src: url("assets/font-ocra.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Terminus";
-  src: url("assets/FONT_Terminus.otf") format("opentype");
+  src: url("assets/font-terminus.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
@@ -304,8 +304,8 @@ h2 {
   width: 150px;
   height: 43px;
   background: #000000;
-  mask: url("assets/TEX_Silicore_Logo.svg") center / contain no-repeat;
-  -webkit-mask: url("assets/TEX_Silicore_Logo.svg") center / contain no-repeat;
+  mask: url("assets/logo-silicore.svg") center / contain no-repeat;
+  -webkit-mask: url("assets/logo-silicore.svg") center / contain no-repeat;
 }
 
 .catalog-panel {

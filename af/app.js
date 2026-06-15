@@ -4,8 +4,8 @@ const DATA_URL = "assets/fabrics.json";
 const STORAGE_KEY = "silicore-fabric-cart-v1";
 const LANGUAGE_KEY = "agent-fur-language-v1";
 const EXPORT_VERSION = 1;
-const RND_ICON_URL = "thumb_up_24dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg";
-const NRND_ICON_URL = encodeURI("资源 1.svg");
+const RND_ICON_URL = "icon-recommended.svg";
+const NRND_ICON_URL = "icon-not-recommended.svg";
 
 const STRINGS = {
   en: {
