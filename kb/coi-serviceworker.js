@@ -2,6 +2,7 @@
 
 const COOP = "same-origin";
 const COEP = "require-corp";
+const VERSION = "20260623b";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(self.skipWaiting());
@@ -17,7 +18,7 @@ self.addEventListener("fetch", (event) => {
   }
 
   event.respondWith(
-    fetch(event.request).then((response) => {
+    fetch(new Request(event.request, { cache: "no-store" })).then((response) => {
       const headers = new Headers(response.headers);
       headers.set("Cross-Origin-Opener-Policy", COOP);
       headers.set("Cross-Origin-Embedder-Policy", COEP);
