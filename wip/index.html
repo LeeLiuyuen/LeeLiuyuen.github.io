@@ -7,10 +7,10 @@
       name="description"
       content="Silicore Online Viewer - Three.js GLB 3D model viewer"
     />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/wip/assets/favicon.svg" />
     <title>Silicore Online Viewer</title>
-    <script type="module" crossorigin src="/wip/assets/index-BQ1_NJtg.js"></script>
-    <link rel="stylesheet" crossorigin href="/wip/assets/index-Du6hUf9B.css">
+    <script type="module" crossorigin src="/wip/assets/index-B-PsNQF7.js"></script>
+    <link rel="stylesheet" crossorigin href="/wip/assets/index-BJtXQTTD.css">
   </head>
   <body>
     <div id="app">
@@ -19,7 +19,7 @@
 
       <header class="topbar" aria-label="Viewer status">
         <div class="brand-panel">
-          <img src="/assets/TEX_Silicore_Logo.svg" alt="Silicore" />
+          <img src="/wip/assets/TEX_Silicore_Logo.svg" alt="Silicore" />
         </div>
         <div class="model-meta">
           <span class="eyebrow">//CUSTOMER MODEL VIEWER</span>
@@ -27,6 +27,17 @@
         </div>
         <div class="system-tag" aria-hidden="true">SC_PREVIEW_PROTOCOL</div>
         <div class="actions">
+          <button id="upload-model" class="toolbar-button" type="button" title="Upload model" aria-label="Upload model" hidden>
+            <span class="button-icon" aria-hidden="true">⇧</span>
+            <span class="button-label">UPLOAD_MODEL</span>
+          </button>
+          <input
+            id="model-upload"
+            class="file-input"
+            type="file"
+            accept=".glb,.gltf,.bin,.png,.jpg,.jpeg,.webp,.ktx2,model/gltf-binary,model/gltf+json,image/*"
+            multiple
+          />
           <button id="reset-view" class="camera-reset-button" type="button" title="Reset camera" aria-label="Reset camera">
             <span class="button-icon" aria-hidden="true">↺</span>
             <span class="button-label">CAMERA_RESET</span>
@@ -38,11 +49,91 @@
         <canvas id="axis-indicator" aria-hidden="true"></canvas>
       </div>
 
-      <aside class="control-panel" aria-label="Light controls">
-        <label for="light-angle">LIGHT_ANGLE</label>
-        <div class="slider-row">
-          <input id="light-angle" type="range" min="0" max="360" value="35" />
-          <output id="light-angle-value" for="light-angle">35°</output>
+      <aside class="control-panel" aria-label="Preview controls">
+        <div class="control-section">
+          <label for="light-angle">LIGHT_ANGLE</label>
+          <div class="slider-row">
+            <input id="light-angle" type="range" min="0" max="360" value="35" />
+            <output id="light-angle-value" for="light-angle">35°</output>
+          </div>
+        </div>
+
+        <div id="fur-controls" class="control-section">
+          <div class="toggle-row">
+            <label for="fur-enabled">SHELL_FUR</label>
+            <input id="fur-enabled" type="checkbox" />
+          </div>
+
+          <label>QUALITY</label>
+          <div class="segmented-control" role="radiogroup" aria-label="Shell fur quality">
+            <label>
+              <input id="fur-quality-low" type="radio" name="fur-quality" value="low" />
+              <span>LOW</span>
+            </label>
+            <label>
+              <input id="fur-quality-mid" type="radio" name="fur-quality" value="mid" checked />
+              <span>MID</span>
+            </label>
+            <label>
+              <input id="fur-quality-high" type="radio" name="fur-quality" value="high" />
+              <span>HIGH</span>
+            </label>
+          </div>
+
+          <div id="fur-advanced-controls" hidden>
+          <label for="fur-length">FUR_LENGTH</label>
+          <div class="slider-row">
+            <input id="fur-length" type="range" min="0" max="5" step="0.1" value="5" />
+            <output id="fur-length-value" for="fur-length">5.0%</output>
+          </div>
+
+          <label for="fur-layers">SHELLS</label>
+          <div class="slider-row">
+            <input id="fur-layers" type="range" min="8" max="75" step="1" value="48" />
+            <output id="fur-layers-value" for="fur-layers">48</output>
+          </div>
+
+          <label for="fur-density">DENSITY</label>
+          <div class="slider-row">
+            <input id="fur-density" type="range" min="2" max="500" step="0.5" value="51" />
+            <output id="fur-density-value" for="fur-density">51.0</output>
+          </div>
+
+          <label for="fur-noise-contrast">NOISE_CONTRAST</label>
+          <div class="slider-row">
+            <input id="fur-noise-contrast" type="range" min="0.4" max="5" step="0.05" value="1.8" />
+            <output id="fur-noise-contrast-value" for="fur-noise-contrast">1.80</output>
+          </div>
+
+          <label for="fur-softness">SMOOTHNESS</label>
+          <div class="slider-row">
+            <input id="fur-softness" type="range" min="0.6" max="4" step="0.1" value="1" />
+            <output id="fur-softness-value" for="fur-softness">1.0</output>
+          </div>
+
+          <label for="fur-comb">COMB</label>
+          <div class="slider-row">
+            <input id="fur-comb" type="range" min="-2" max="2" step="0.01" value="-2" />
+            <output id="fur-comb-value" for="fur-comb">-2.00</output>
+          </div>
+
+          <label for="fur-opacity">OPACITY</label>
+          <div class="slider-row">
+            <input id="fur-opacity" type="range" min="0.2" max="1" step="0.02" value="0.4" />
+            <output id="fur-opacity-value" for="fur-opacity">0.40</output>
+          </div>
+
+          <label for="fur-brightness">FUR_BRIGHTNESS</label>
+          <div class="slider-row">
+            <input id="fur-brightness" type="range" min="0.7" max="2.4" step="0.05" value="1.8" />
+            <output id="fur-brightness-value" for="fur-brightness">1.80</output>
+          </div>
+
+          <div class="color-row">
+            <label for="fur-color">FUR_TINT</label>
+            <input id="fur-color" type="color" value="#ffffff" />
+          </div>
+          </div>
         </div>
       </aside>
 
