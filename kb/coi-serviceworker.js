@@ -2,7 +2,7 @@
 
 const COOP = "same-origin";
 const COEP = "require-corp";
-const VERSION = "20260623b";
+const VERSION = "20260623c";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(self.skipWaiting());
