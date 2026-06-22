@@ -9,8 +9,8 @@
     />
     <link rel="icon" type="image/svg+xml" href="/wip/assets/favicon.svg" />
     <title>Silicore Online Viewer</title>
-    <script type="module" crossorigin src="/wip/assets/index-94C9I6lr.js"></script>
-    <link rel="stylesheet" crossorigin href="/wip/assets/index-BJtXQTTD.css">
+    <script type="module" crossorigin src="/wip/assets/index-Cind9A5O.js"></script>
+    <link rel="stylesheet" crossorigin href="/wip/assets/index-kM4yOXKf.css">
   </head>
   <body>
     <div id="app">
@@ -27,10 +27,6 @@
         </div>
         <div class="system-tag" aria-hidden="true">SC_PREVIEW_PROTOCOL</div>
         <div class="actions">
-          <button id="upload-model" class="toolbar-button" type="button" title="Upload model" aria-label="Upload model" hidden>
-            <span class="button-icon" aria-hidden="true">⇧</span>
-            <span class="button-label">UPLOAD_MODEL</span>
-          </button>
           <input
             id="model-upload"
             class="file-input"
@@ -59,13 +55,12 @@
         </div>
 
         <div id="fur-controls" class="control-section">
-          <div class="toggle-row">
-            <label for="fur-enabled">SHELL_FUR</label>
-            <input id="fur-enabled" type="checkbox" />
-          </div>
-
           <label>QUALITY</label>
           <div class="segmented-control" role="radiogroup" aria-label="Shell fur quality">
+            <label>
+              <input id="fur-quality-off" type="radio" name="fur-quality" value="off" />
+              <span>OFF</span>
+            </label>
             <label>
               <input id="fur-quality-low" type="radio" name="fur-quality" value="low" />
               <span>LOW</span>
